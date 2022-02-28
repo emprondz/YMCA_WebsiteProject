@@ -79,7 +79,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="{{ url_for('program_search') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Program Search</a>
     
     <!-- Button to open the modal login form -->
-    <button onclick="document.getElementById('id01').style.display='block'" style="background-color: white; border: 0px; height: 51px; width: 75px;">Login</button>
+    <button class="navLogin" onclick="document.getElementById('id01').style.display='block'" style="background-color: white; border: 0px; height: 51px; width: 75px;">Login</button>
 
     <!-- The Modal -->
     <div id="id01" class="modal">
@@ -179,6 +179,11 @@ function myFunction() {
   }
 }
 </script>
-
+<style>
+  button.navLogin:hover {
+  color: red;
+  cursor: pointer;
+}
+</style>
 </body>
 </html>
