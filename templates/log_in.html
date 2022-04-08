@@ -1,27 +1,42 @@
-<!DOCTYPE html>
-<html>
-   <body>
-   
-      <h3>Sign In</h3>
-      <hr/>
-      
-      {%- for category, message in get_flashed_messages(with_categories = true) %}
-         <div class = "alert alert-danger">
+{% include 'format/header.html' %}
+
+
+
+<section class="loginbox">
+<h1> LOG IN </h1>
+<p>Email</p>
+    <form action="/login" method="POST">
+
+    {% if message %}
+        <p style="color:rgb(177, 0, 0);">
             {{ message }}
-         </div>
-      {%- endfor %}
-      
-      <form action = "{{ request.path }}" method = "post">
-         <label for = "First Name">First Name</label><br>
-         <input type = "text" name = "FirstName" /><br>
-         <label for = "email">Last Name</label><br>
-         <input type = "text" name = "LastName" /><br>
-         <label for = "addr">Email</label><br>
-         <input type = "text" name = "Email" /><br>
-         <label for = "PIN">Password</label><br>
-         <input type = "text" name = "Password" /><br>
-         <input type = "submit" value = "Submit" />
-      </form>
-      
-   </body>
-</html>
+        </p>
+    {% endif %}
+
+    {% if email_error %}
+        <p style="color:rgb(177, 0, 0);">
+            {{ email_error }}
+        </p>
+    {% endif %}
+    <input placeholder="Enter Email" autocomplete="off" type="text" name="email" value= "{{ email }}">
+<p>Password</p>
+    {% if password_error %}
+        <p style="color:rgb(177, 0, 0);">
+            {{ password_error }}
+        </p>
+    {% endif %}
+    <input placeholder="Enter Password" autocomplete="off" type="password" name="password">
+
+
+
+
+    <input type="submit" name="login" value="login">
+
+</form>
+
+<a href="/register_user">
+   <p> <button>New User?</button></p>
+</a> 
+
+</section>
+{% include 'format/footer.html' %}
